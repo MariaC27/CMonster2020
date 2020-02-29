@@ -33,11 +33,11 @@ public class IntakeBase extends SubsystemBase {
   }
 
   public void intakeStart(){
-    intakeTalon.set(0.75);
+    intakeTalon.set(-0.6);
   }
 
   public void intakeStartOut(){
-    intakeTalon.set(-0.75);
+    intakeTalon.set(0.6);
   }
 
   public void intakeStop(){

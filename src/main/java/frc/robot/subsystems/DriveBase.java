@@ -31,6 +31,8 @@ public class DriveBase extends SubsystemBase {
   public WPI_TalonSRX leftTalon = RobotContainer.leftTalon;
   public WPI_VictorSPX leftVictor = RobotContainer.leftVictor;
 
+  public JoystickSensitivity joystickSensitivity = new JoystickSensitivity();
+
   double tx = NetworkTableInstance.getDefault().getTable("limelight").getEntry("tx").getDouble(0);
   double ty = NetworkTableInstance.getDefault().getTable("limelight").getEntry("ty").getDouble(0);
   double ta = NetworkTableInstance.getDefault().getTable("limelight").getEntry("ta").getDouble(0);
@@ -38,6 +40,8 @@ public class DriveBase extends SubsystemBase {
   
   double leftMotorSpeed = 0; //create variables to store joystick information 
   double rightMotorSpeed = 0;
+
+  public static double scale = 1.0;
 
   
   /**
@@ -74,11 +78,14 @@ public class DriveBase extends SubsystemBase {
       leftMotorSpeed = leftJoystick.getY() * -1; //get values from joysticks 
       rightMotorSpeed = rightJoystick.getY();
 
+      leftMotorSpeed = joystickSensitivity.GetOutput(leftMotorSpeed);
+	    rightMotorSpeed = joystickSensitivity.GetOutput(rightMotorSpeed);
+
       
-      leftTalon.set(leftMotorSpeed); // finally assign the stored values to talons  
-      leftVictor.set(leftMotorSpeed);
-      rightTalon.set(rightMotorSpeed);
-      rightVictor.set(rightMotorSpeed);
+      leftTalon.set(leftMotorSpeed * scale); // finally assign the stored values to talons  
+      leftVictor.set(leftMotorSpeed * scale);
+      rightTalon.set(rightMotorSpeed * scale);
+      rightVictor.set(rightMotorSpeed * scale);
 
      
     

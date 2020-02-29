@@ -65,8 +65,8 @@ public class RobotContainer {
  
   
   //Solenoids
-  public static DoubleSolenoid intakeSolenoid = new DoubleSolenoid (0,1);
-  public static DoubleSolenoid controlWheelSolenoid = new DoubleSolenoid (2,3);
+  public static DoubleSolenoid intakeSolenoid = new DoubleSolenoid(0, 0, 1);
+  public static DoubleSolenoid controlWheelSolenoid = new DoubleSolenoid (0, 2,3);
 
   public static Compressor robotCompressor;
 
@@ -192,6 +192,9 @@ public class RobotContainer {
     visionAngleDistance.whenReleased(new VisionControlStop());
 
 
+    quarterSpeed.whileHeld(new QuarterSpeedOn());
+    quarterSpeed.whenReleased(new QuarterSpeedOff());
+
     //make quarter speed command link here
 
     //intake subsystem
@@ -221,8 +224,8 @@ public class RobotContainer {
     elevatorUp.whenReleased(new ElevatorStop());
     elevatorDown.whileHeld(new ElevatorDownStart());
     elevatorDown.whenReleased(new ElevatorStop());
-    hookUp.whileHeld(new WinchStartUp());
-    hookUp.whenReleased(new WinchStop());
+    //hookUp.whileHeld(new WinchStartUp());
+    //hookUp.whenReleased(new WinchStop()); //commented out because of ratchet
     hookDown.whileHeld(new WinchStartDown());
     hookDown.whenReleased(new WinchStop());
 

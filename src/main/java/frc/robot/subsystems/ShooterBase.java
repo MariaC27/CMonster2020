@@ -36,8 +36,8 @@ public static WPI_TalonSRX conveyorTalon = RobotContainer.conveyorTalon;
   
 
   public void ShootBallOn(){
-    leftSpark.set(1);
-    rightSpark.set(1);
+    leftSpark.set(-1);
+    rightSpark.set(-1);
   }
   public void ShootBallOff(){
     leftSpark.set(0);

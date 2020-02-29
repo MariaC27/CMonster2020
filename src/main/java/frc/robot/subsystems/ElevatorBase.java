@@ -23,11 +23,11 @@ public class ElevatorBase extends SubsystemBase {
 
   }
   public void ElevatorUp(){
-    ElevatorMotor.set(1);
+    ElevatorMotor.set(0.75);
   }
   
   public void ElevatorDown(){
-    ElevatorMotor.set(-1);
+    ElevatorMotor.set(-0.75);
   }
   
   public void ElevatorStop(){

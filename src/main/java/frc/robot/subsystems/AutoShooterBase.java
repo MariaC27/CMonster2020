@@ -50,6 +50,7 @@ public class AutoShooterBase extends SubsystemBase {
   }
 
   public void adjust(){
+    //vision calculations from limelightBase
     //adjusting calculations, taken from driveBase
     double current_distance = RobotContainer.driveBase.EstimateDistance();
       
