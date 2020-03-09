@@ -62,6 +62,8 @@ public class RobotContainer {
   public static Spark hookSpark = new Spark (1); 
   public static Spark shooterLeftSpark = new Spark(2);
   public static Spark shooterRightSpark = new Spark(3);
+  public static Spark rightFlapperWheel = new Spark(4);
+  public static Spark leftFlapperWheel = new Spark(5);
  
   
   //Solenoids
@@ -134,11 +136,11 @@ public class RobotContainer {
     //buttons for driver:
     intakeUp = new JoystickButton(rightJoystick, 2);
     intakeDown = new JoystickButton(rightJoystick, 3);
-    quarterSpeed = new JoystickButton(rightJoystick, 1);
+    quarterSpeed = new JoystickButton(leftJoystick, 1);
 
     controlWheelUp = new JoystickButton(leftJoystick, 2);
     controlWheelDown = new JoystickButton(leftJoystick, 3);
-    wheelControl = new JoystickButton (leftJoystick, 1);
+    wheelControl = new JoystickButton (rightJoystick, 1);
    
 
     //buttons for operator

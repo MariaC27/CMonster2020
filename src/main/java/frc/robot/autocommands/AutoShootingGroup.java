@@ -21,7 +21,9 @@ public class AutoShootingGroup extends SequentialCommandGroup {
   public AutoShootingGroup() {
     // Add your commands in the super() call, e.g.
     // super(new FooCommand(), new BarCommand());
-    super(new TimedMoveForward(3), new Adjust(), new TimedShooter(3));
+   // super(new TimedMoveForward(3), new Adjust(), new TimedShooter(3));
+   //super(new TimedShooter(3));
+   super(new TimedMoveForward(3));
     //write shooter class and finish later 
   }
 }

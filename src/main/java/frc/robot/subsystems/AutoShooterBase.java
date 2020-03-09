@@ -10,6 +10,8 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotContainer;
 import edu.wpi.first.networktables.NetworkTableInstance;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
@@ -48,6 +50,8 @@ public class AutoShooterBase extends SubsystemBase {
   public AutoShooterBase() {
 
   }
+
+ 
 
   public void adjust(){
     //vision calculations from limelightBase

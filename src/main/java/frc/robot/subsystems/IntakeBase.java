@@ -19,6 +19,8 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 public class IntakeBase extends SubsystemBase {
 
   public static WPI_TalonSRX intakeTalon = RobotContainer.intakeTalon; 
+  public static Spark rightFlapperSpark = RobotContainer.rightFlapperWheel;
+  public static Spark leftFlapperSpark = RobotContainer.leftFlapperWheel;
   public static DoubleSolenoid IntakeSolenoid = RobotContainer.intakeSolenoid; 
   /**
    * Creates a new IntakeBase.
@@ -34,14 +36,20 @@ public class IntakeBase extends SubsystemBase {
 
   public void intakeStart(){
     intakeTalon.set(-0.6);
+    rightFlapperSpark.set(-0.7);
+    leftFlapperSpark.set(0.7);
   }
 
   public void intakeStartOut(){
     intakeTalon.set(0.6);
+    rightFlapperSpark.set(0.7);
+    leftFlapperSpark.set(-0.7);
   }
 
   public void intakeStop(){
     intakeTalon.set(0);
+    rightFlapperSpark.set(0);
+    leftFlapperSpark.set(0);
   }
 
   public void intakeSolenoidUp(){

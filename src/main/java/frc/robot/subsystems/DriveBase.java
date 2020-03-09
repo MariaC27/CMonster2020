@@ -79,7 +79,10 @@ public class DriveBase extends SubsystemBase {
       rightMotorSpeed = rightJoystick.getY();
 
       leftMotorSpeed = joystickSensitivity.GetOutput(leftMotorSpeed);
-	    rightMotorSpeed = joystickSensitivity.GetOutput(rightMotorSpeed);
+      rightMotorSpeed = joystickSensitivity.GetOutput(rightMotorSpeed);
+      
+      SmartDashboard.putNumber("leftMotorSpeed", leftMotorSpeed);
+      SmartDashboard.putNumber("rightMotorSpeed", rightMotorSpeed);
 
       
       leftTalon.set(leftMotorSpeed * scale); // finally assign the stored values to talons  
@@ -93,12 +96,24 @@ public class DriveBase extends SubsystemBase {
 
 
   public void driveForwardAutonomous(){
-    leftTalon.set(0.5);
-    rightTalon.set(0.5);
-    leftVictor.set(0.5);
-    rightVictor.set(0.5);
+    leftTalon.set(ControlMode.PercentOutput, -0.5);
+    rightTalon.set(ControlMode.PercentOutput, 0.5);
+    leftVictor.set(ControlMode.PercentOutput, -0.5);
+    rightVictor.set(ControlMode.PercentOutput, 0.5);
+    SmartDashboard.putNumber("leftTalonCurrent", leftTalon.getSupplyCurrent());
+    SmartDashboard.putNumber("rightTalonCurrent", rightTalon.getSupplyCurrent());
+  
 
   }
+
+  public void stopAutonomous(){
+    leftTalon.set(ControlMode.PercentOutput, 0.0);
+    leftTalon.set(ControlMode.PercentOutput, 0);
+    leftVictor.set(ControlMode.PercentOutput, 0);
+    rightTalon.set(ControlMode.PercentOutput, 0);
+    rightVictor.set(ControlMode.PercentOutput, 0);
+  }
+  
 
   @Override
   public void periodic() {
